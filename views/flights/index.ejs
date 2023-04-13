@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% flights.forEach((flight)=>{ %>
+        <h3> <%=flight.airline%> </h3>
+        <h4> <%=flight.airport%> </h4>
+        <h4> <%=flight.departs%> </h4>
+        <h4> <%=flight.flightNo%> </h4>
+        <!-- Add _method=delete to your action to make it a delete REQUEST
+        This only works because of our methodOverride middleware -->
+        <form action="/flights/<%=flight._id%>?_method=delete" method="post">
+            <input type="submit" value="Delete">
+        </form>
+    <% }) %>
+</body>
+</html>

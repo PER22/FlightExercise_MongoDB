@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Form to make a new flight</h1>
+    <!-- ACTION SETS THE URL OF THE REQUEST
+    METHOD SETS THE METHOD OF THE REQUEST -->
+    <form action="/flights" method="post">
+        Airline: <input type="text" name="airline">
+        Airport: <input type="text" name="airport">
+        Flight Number: <input type="number" name="flightNo">
+        Departs: <input type="date" name="departs">
+        <input type="submit" value="Create a new flight">
+    </form>
+
+</body>
+</html>
