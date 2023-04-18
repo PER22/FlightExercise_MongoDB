@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=flight.airline%> #<%= flight.flightNo %></title>
+</head>
+<body>
+    <h3> <%=flight.airline%> </h3>
+    <h4> <%=flight.airport%> </h4>
+    <h4> <%=flight.departs%> </h4>
+    <h4> <%=flight.flightNo%> </h4>
+
+
+    <form action="/flights/<%=flight._id%>/destinations" method="POST">
+        <input type="text" name="airport">
+        <input type="date" name="arrivalDate">
+        <input type="submit" value="Add destination to flight">
+    </form>
+
+    <% flight.destinations.forEach((destination)=>{ %>
+        <h2>Arrives at <%=destination.airport %></h2>
+        <h4>at approximately <%="" + destination.arrivalDate %></h4>
+    <% });%>
+</body>
+</html>

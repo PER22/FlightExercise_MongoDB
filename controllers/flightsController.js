@@ -18,15 +18,29 @@ module.exports = {
         res.render('flights/new')
     },
     create: async (req, res)=>{
-        // Pull in the form data
+        try{
+            // Pull in the form data
         const flightToCreate = req.body;
         // Use the model to create based on the form data
         await FlightModel.create(flightToCreate);
         // Send the user back to a different page
         res.redirect('/flights');
+        }catch(err){
+            res.redirect('/flights/new');
+        }
+        
+    },
+    show: async(req, res)=>{
+        try{
+            const flightToShow = await FlightModel.findById(req.params.id);
+        res.render(`flights/show`, {flight: flightToShow});
+        }catch(err){
+            console.log(error);
+        }
+        
     },
     delete: async (req, res)=>{
-        await FlightModel.findByIdAndDelete(req.params.id)
+        let flightToDelete = await FlightModel.findByIdAndDelete(req.params.id)
         res.redirect('/flights');
     }
 }

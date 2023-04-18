@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const flightController = require('../controllers/flightController')
+const flightController = require('../controllers/flightsController')
 
 // 7 RESTFUL routes
 // index: list all of a collection
@@ -12,6 +12,7 @@ router.get('/new', flightController.new)
 
 // show: display just one
 // path:  /recipes/:id
+router.get('/:id', flightController.show)
 
 // create: add a new one to the collection
 // POST /recipes

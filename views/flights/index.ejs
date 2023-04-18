@@ -12,6 +12,7 @@
         <h4> <%=flight.airport%> </h4>
         <h4> <%=flight.departs%> </h4>
         <h4> <%=flight.flightNo%> </h4>
+        <a href="/flights/<%=flight._id%>">See flight details</a>
         <!-- Add _method=delete to your action to make it a delete REQUEST
         This only works because of our methodOverride middleware -->
         <form action="/flights/<%=flight._id%>?_method=delete" method="post">
