@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <%- include('../partials/_navbar')%>
     <% flights.forEach((flight)=>{ %>
         <h3> <%=flight.airline%> </h3>
         <h4> <%=flight.airport%> </h4>

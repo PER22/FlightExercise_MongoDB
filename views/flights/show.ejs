@@ -7,6 +7,8 @@
     <title><%=flight.airline%> #<%= flight.flightNo %></title>
 </head>
 <body>
+    <%- include('../partials/_navbar')%>
+
     <h3> <%=flight.airline%> </h3>
     <h4> <%=flight.airport%> </h4>
     <h4> <%=flight.departs%> </h4>
@@ -15,13 +17,13 @@
 
     <form action="/flights/<%=flight._id%>/destinations" method="POST">
         <input type="text" name="airport">
-        <input type="date" name="arrivalDate">
+        <input type="datetime-local" name="arrival">
         <input type="submit" value="Add destination to flight">
     </form>
 
     <% flight.destinations.forEach((destination)=>{ %>
         <h2>Arrives at <%=destination.airport %></h2>
-        <h4>at approximately <%="" + destination.arrivalDate %></h4>
+        <h4>at approximately <%=destination.arrival %></h4>
     <% });%>
 </body>
 </html>
